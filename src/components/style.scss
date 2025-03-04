@@ -1,0 +1,51 @@
+$primary: #707070;
+$default-padding: 10px;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex-grow: 1;
+}
+
+.header {
+  background-color: $primary;
+  color: white;
+  padding: $default-padding;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+.menu {
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  padding: $default-padding;
+  width: 300px;
+  margin: 0;
+}
+
+.main {
+  padding: $default-padding;
+  flex-grow: 1;
+}
+
+.not-active {
+  color: #a0a0a0;
+  text-decoration: none;
+}
+.active {
+  color: #ffd700;
+}
