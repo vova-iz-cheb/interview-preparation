@@ -4,6 +4,9 @@ import { AlgBubbleSort } from '../pages/AlgBubbleSort';
 import { Main } from '../pages/Main';
 import './style.scss';
 import { Todo } from '../pages/Todo';
+import { Typescript } from '../pages/Typescript';
+import { Theory } from '../pages/Theory';
+import { TheoryCriticalRenderingPath } from '../pages/TheoryCriticalRenderingPath';
 
 export const App = () => {
   const classNameFn = ({ isActive }: { isActive: boolean }) =>
@@ -20,6 +23,15 @@ export const App = () => {
           <NavLink to='/webpack' className={classNameFn}>
             Webpack
           </NavLink>
+          <NavLink to='/typescript' className={classNameFn}>
+            Type Script
+          </NavLink>
+          <NavLink to='/theory' className={classNameFn}>
+            Theory
+          </NavLink>
+          <NavLink to='/theory-crp' className={classNameFn}>
+            Theory Critical Rendering Path
+          </NavLink>
           <NavLink to='/alg-sort-bubble' className={classNameFn}>
             Алгоритмы. Сортировка пузырьком
           </NavLink>
@@ -29,6 +41,12 @@ export const App = () => {
             <Route path='alg-sort-bubble' element={<AlgBubbleSort />} />
             <Route path='webpack' element={<Webpack />} />
             <Route path='todo' element={<Todo />} />
+            <Route path='theory' element={<Theory />} />
+            <Route
+              path='theory-crp'
+              element={<TheoryCriticalRenderingPath />}
+            />
+            <Route path='typescript' element={<Typescript />} />
             <Route path='/' element={<Main />} />
           </Routes>
         </main>
