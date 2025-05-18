@@ -7,6 +7,8 @@ import { Todo } from '../pages/Todo';
 import { Typescript } from '../pages/Typescript';
 import { Theory } from '../pages/Theory';
 import { TheoryCriticalRenderingPath } from '../pages/TheoryCriticalRenderingPath';
+import { React18_19 } from '../pages/React18-19';
+import { TheoryEventLoop } from '../pages/TheoryEventLoop';
 
 export const App = () => {
   const classNameFn = ({ isActive }: { isActive: boolean }) =>
@@ -20,6 +22,9 @@ export const App = () => {
           <NavLink to='/todo' className={classNameFn}>
             TODO
           </NavLink>
+          <NavLink to='/react' className={classNameFn}>
+            React
+          </NavLink>
           <NavLink to='/webpack' className={classNameFn}>
             Webpack
           </NavLink>
@@ -31,6 +36,9 @@ export const App = () => {
           </NavLink>
           <NavLink to='/theory-crp' className={classNameFn}>
             Theory Critical Rendering Path
+          </NavLink>
+          <NavLink to='/theory-event-loop' className={classNameFn}>
+            Theory EventLoop
           </NavLink>
           <NavLink to='/alg-sort-bubble' className={classNameFn}>
             Алгоритмы. Сортировка пузырьком
@@ -46,7 +54,9 @@ export const App = () => {
               path='theory-crp'
               element={<TheoryCriticalRenderingPath />}
             />
+            <Route path='theory-event-loop' element={<TheoryEventLoop />} />
             <Route path='typescript' element={<Typescript />} />
+            <Route path='react' element={<React18_19 />} />
             <Route path='/' element={<Main />} />
           </Routes>
         </main>

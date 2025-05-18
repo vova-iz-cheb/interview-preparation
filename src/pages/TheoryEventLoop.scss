@@ -1,0 +1,17 @@
+@keyframes bgColorChange {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: green;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.red {
+  width: 100px;
+  height: 100px;
+  animation: bgColorChange 6s infinite;
+}
