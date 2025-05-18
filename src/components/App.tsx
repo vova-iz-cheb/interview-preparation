@@ -9,6 +9,7 @@ import { Theory } from '../pages/Theory';
 import { TheoryCriticalRenderingPath } from '../pages/TheoryCriticalRenderingPath';
 import { React18_19 } from '../pages/React18-19';
 import { TheoryEventLoop } from '../pages/TheoryEventLoop';
+import { ReduxComponent } from '../pages/redux';
 
 export const App = () => {
   const classNameFn = ({ isActive }: { isActive: boolean }) =>
@@ -43,6 +44,9 @@ export const App = () => {
           <NavLink to='/alg-sort-bubble' className={classNameFn}>
             Алгоритмы. Сортировка пузырьком
           </NavLink>
+          <NavLink to='/redux' className={classNameFn}>
+            Redux tool kit
+          </NavLink>
         </menu>
         <main className='main'>
           <Routes>
@@ -57,6 +61,7 @@ export const App = () => {
             <Route path='theory-event-loop' element={<TheoryEventLoop />} />
             <Route path='typescript' element={<Typescript />} />
             <Route path='react' element={<React18_19 />} />
+            <Route path='redux' element={<ReduxComponent />} />
             <Route path='/' element={<Main />} />
           </Routes>
         </main>

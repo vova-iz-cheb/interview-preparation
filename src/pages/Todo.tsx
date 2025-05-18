@@ -1,4 +1,14 @@
 export const Todo = () => {
+  // (practic) rtk - slices и запросы
+  // уязвимости
+  // паттерны
+  // http -> tcp
+  //cors
+  // rest
+  // (practic) webpack
+  // (practic) service workers
+  // metkits производительности и оптимизации lighthouse https://www.npmjs.com/package/web-vitals
+  // (practic) next JS
   return (
     <>
       <ul>
