@@ -2,9 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import { todosReducer } from './todoSlice';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector, useStore } from 'react-redux';
+import loggerMiddleware from './logger-middleware';
+import monitorReducerEnhancer from './monitor-enhancer';
 
 export const store = configureStore({
   reducer: { todos: todosReducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(loggerMiddleware),
+  // enhancers
 });
 
 // Get the type of our store variable

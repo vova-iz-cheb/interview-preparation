@@ -18,12 +18,14 @@ const Inner = () => {
     <div>
       <button
         onClick={() => {
-          dispatch(
+          const res = dispatch(
             addTodo({
               id: id.current,
               content: `${id.current} task`,
             })
           );
+
+          console.log('res', res);
           id.current++;
         }}
       >
