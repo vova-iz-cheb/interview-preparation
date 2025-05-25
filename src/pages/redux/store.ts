@@ -3,13 +3,40 @@ import { todosReducer } from './todoSlice';
 import type { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import loggerMiddleware from './logger-middleware';
-import monitorReducerEnhancer from './monitor-enhancer';
+import { monitorReducerEnhancer } from './monitor-enhancer';
+import { usersReducer } from './userSlice';
+import { commentsReducer } from './commentSlice';
 
 export const store = configureStore({
-  reducer: { todos: todosReducer },
+  reducer: {
+    todos: todosReducer,
+    users: usersReducer,
+    comments: commentsReducer,
+  },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().prepend(loggerMiddleware),
-  // enhancers
+    getDefaultMiddleware({
+      // actionCreatorCheck: false,
+      // serializableCheck: false,
+    }).prepend(loggerMiddleware),
+  enhancers: (getDefaultEnhancers) =>
+    getDefaultEnhancers().concat(monitorReducerEnhancer),
+  devTools: {
+    name: 'my app',
+  },
+  preloadedState: {
+    todos: {
+      todos: [
+        {
+          id: 1,
+          content: 'preloaded 1 task',
+        },
+        {
+          id: 2,
+          content: 'preloaded 2 task',
+        },
+      ],
+    },
+  },
 });
 
 // Get the type of our store variable

@@ -1,4 +1,5 @@
 const logger = (store: any) => (next: any) => (action: any) => {
+  return next(action);
   console.log('1 store', store);
   console.log('1 next', next);
   console.log('1 action', action);

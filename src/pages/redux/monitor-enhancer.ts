@@ -1,19 +1,15 @@
-const round = (number) => Math.round(number * 100) / 100;
+import { StoreEnhancer } from '@reduxjs/toolkit';
 
-const monitorReducerEnhancer =
-  (createStore) => (reducer, initialState, enhancer) => {
-    const monitoredReducer = (state, action) => {
+// Правильный тип enhancer'а
+export const monitorReducerEnhancer: StoreEnhancer =
+  (createStore) => (reducer: any, preloadedState: any) => {
+    const monitoredReducer = (state: any, action: any) => {
       const start = performance.now();
       const newState = reducer(state, action);
       const end = performance.now();
-      const diff = round(end - start);
-
-      console.log('reducer process time:', diff);
-
+      console.log('Reducer time:', end - start, 'ms');
       return newState;
     };
 
-    return createStore(monitoredReducer, initialState, enhancer);
+    return createStore(monitoredReducer, preloadedState);
   };
-
-export default monitorReducerEnhancer;
